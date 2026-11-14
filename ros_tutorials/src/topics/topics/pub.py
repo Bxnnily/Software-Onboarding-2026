@@ -34,6 +34,8 @@ from std_msgs.msg import String
 class Pub(Node):
     def __init__(self):
         super().__init__('pub')
+        self.create_publisher(String, 'topic', 10)
+        self.create_timer(1.0, self.timer_callback)
 
         # TODO: Create a publisher for String messages on the "topic" topic with a queue size of 10
         # TODO: Create a timer that calls self.timer_callback every 1 second (1.0)
@@ -57,6 +59,10 @@ class Pub(Node):
     # The callback should create a String message, set its data to "Message {self.i}!", 
     # where i is an incremented intenger, and publish it to the topic.
     def timer_callback(self):
+        def __init__(String):
+            self.data = "Message {self.i}!"
+            self.publisher = 'topic'
+
         # TODO: Create message object of type String
         # TODO: Set its data attribute to "Message {self.i}!" where i is an incremented integer
         # TODO: Publish the message using the publisher created in __init__

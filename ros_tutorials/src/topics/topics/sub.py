@@ -35,6 +35,7 @@ from std_msgs.msg import String
 class Sub(Node):
     def __init__(self):
         super().__init__('sub')
+        self.create_subscription(String, 'topic', self.listener_callback, 10)
 
         # TODO: Create a subscription to String messages on the "topic" topic
         # TODO: Use self.listener_callback as the callback function
@@ -53,6 +54,8 @@ class Sub(Node):
     # Create a callback function that prints the received message.
     # The callback should accept a String message and log the data.
     def listener_callback(self, msg):
+        self.msg = self.get_logger.info("message")
+        return self.msg
         # TODO: Log the incoming message data
 
         # self.get_logger():
